@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <title>3D Model Viewer</title>
+
+    <style>
+        .animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            animation: fadeOut 5s ease-in-out forwards;
+        }
+
+        @keyframes fadeOut {
+            0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden; /* Скрываем элемент после завершения анимации */
+  }
+}
+
+
+
+        .logo {
+            text-align: center;
+            margin-bottom: 7%;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 4rem; 
+            font-weight: bold; 
+            background: linear-gradient(rgb(10, 49, 97), rgb(179, 25, 66)); 
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 1%;
+        }
+
+        .mainphoto {
+            text-align: center;
+        }
+        .slogan {
+            text-align: center;
+        }
+        .slogan2 {
+            text-align: center;
+        }
+        .block_name_one {
+            text-align: center;
+            margin-top: 5%;
+            font-family: "Lucida Console", "Courier New", monospace;
+        }
+
+        .gallery_container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-right: 5%;
+            margin-top: 10%;
+            gap: 6%;
+            flex-direction: row;
+        }
+
+        .history {
+            width: 57%;
+            margin-left: 5%;
+        }
+
+        .gallery {
+            width: 65%;
+            text-align: center;
+            margin-left: 8%;
+
+        }
+
+        .gallery-controls {
+    display: flex; 
+    justify-content: center;
+    gap: 10px; 
+    margin-top: 10px;
+}
+
+.gallery img {
+    display: block; 
+    margin: 0 auto;
+    width: 100%; 
+    height: auto; 
+}
+
+        #gallery-caption {
+            margin-top: 10px;
+            font-style: italic;
+            font-size: 14px;
+            color:  #000000;
+        }
+
+        .block_name_two {
+            text-align: center;
+            margin-top: 5%;
+            font-family: "Lucida Console", "Courier New", monospace;
+        }
+
+        figcaption {
+            text-align: center;
+            font-style: italic;
+        }
+
+        .left {
+            float: left;
+            margin: 0 1em 1em 0;
+        }
+
+        .right {
+            float: right;
+            margin: 0 0 1em 1em;
+        }
+
+        .block_name_three {
+            text-align: center;
+            margin-top: 25%;
+            font-family: "Lucida Console", "Courier New", monospace;
+        }
+
+    .container2 {
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+      margin-top: 1%;
+	}
+
+	.image-wrapper2 {
+	  width: 80%;
+	  height: 70%;
+	  overflow: hidden;
+	  text-align: center;
+	  margin-top: 0.1%;
+	}
+
+	.image-wrapper2 img {
+	  width: 80%;
+	  height: 70%;
+	  object-fit: cover;
+	  text-align: center;
+	  margin-top: 0.1%;
+	}
+
+	.text-wrapper2 {
+	  margin-top: 0.5%;
+	  text-align: center;
+	  margin-right: 5%;
+	  margin-left: 5%;
+	  font-family: Arial, Helvetica, sana-serif;
+	} 
+
+	.arrow-wrapper2 {
+	  margin-top: 20px;
+	}
+
+	#next-btn2 {
+	  	background-color: transparent;
+	  border: none;
+	  cursor: pointer;
+	}
+
+	#next-btn2 img {
+	  width: 50px;
+	  height: 50px;
+	}
+
+    .block_name_four {
+        text-align: center;
+        font-family: "Lucida Console", "Courier New", monospace;
+        margin-top: 8%;
+    }
+
+    .weapon_description {
+        text-align: center;
+        font-family: "Lucida Console", "Courier New", monospace;
+        margin-top: 2%;
+    }
+
+    .ata {
+        text-align: center;
+        font-family: "Lucida Console", "Courier New", monospace;
+        margin-top: 2%;
+    }
+
+    .aim120_title {
+        text-align: center;
+        margin-top: 3%;
+    }
+
+    .aim120 {
+        text-align: center;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .model2 {
+        margin-top: 2%;
+        text-align: left;
+    }
+
+    .model2 model-viewer {
+        width: 600px;
+        height: 400px;
+        margin: 0 auto;
+    }
+
+    .sidewinder {
+        text-align: center;
+        margin-top: 3%;
+    }
+
+    .model3 {
+        margin-top: 2%;
+        text-align: left;
+    }
+
+    .model3 model-viewer {
+        width: 600px;
+        height: 400px;
+        margin: 0 auto;
+    }
+
+    .aim9m {
+        text-align: center;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .atg {
+        text-align: center;
+        font-family: "Lucida Console", "Courier New", monospace;
+        margin-top: 2%;
+    }
+
+    .maverick {
+        text-align: center;
+        margin-top: 3%;
+    }
+
+    .model4 {
+        margin-top: 2%;
+        text-align: left;
+    }
+
+    .model4 model-viewer {
+        width: 600px;
+        height: 400px;
+        margin: 0 auto;
+    }
+
+    .agm {
+        text-align: center;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .gbu {
+        text-align: center;
+        margin-top: 3%;
+    }
+
+    .model5 {
+        margin-top: 2%;
+        text-align: left;
+    }
+
+    .model5 model-viewer {
+        width: 600px;
+        height: 400px;
+        margin: 0 auto;
+    }
+
+    .bombs {
+        text-align: center;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .JSW {
+        text-align: center;
+        margin-top: 3%;
+    }
+
+    .model6 {
+        margin-top: 2%;
+        text-align: left;
+    }
+
+    .model6 model-viewer {
+        width: 600px;
+        height: 400px;
+        margin: 0 auto;
+    }
+
+    .agm154 {
+        text-align: center;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .author {
+		text-align: center;
+		font-family: cursive;
+		padding-bottom: 3%;
+		padding-top: 3%;
+        padding-right: 75%;
+	}
+
+    #footer {
+        background-color: #efe4e4;
+    }
+
+
+
+        model-viewer {
+            width: 1200px;
+            height: 1000px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="animation" id="logo-animation">
+        <img src="https://1000logos.net/wp-content/uploads/2018/08/U.S.-Air-Force-Logo.png" alt="Логотип">
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+  const animationElement = document.getElementById("logo-animation");
+
+  animationElement.addEventListener("animationend", () => {
+    animationElement.style.display = "none"; 
+});
+
+    </script>
+    <header>
+        <div class="logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Boeing_full_logo.svg/2560px-Boeing_full_logo.svg.png" width="80%" height="auto">
+            </div>
+    </header>
+    <div class="title">
+        <div>The F-15E STRIKE EAGLE</div>
+    </div>
+    <div class="mainphoto">
+        <img src="https://www.twz.com/wp-content/uploads/2023/03/16/f-15e-eagle-fleet-cuts.jpg" style="max-width: 100%; max-height: 100%; height: auto;">
+        </div>
+    <div class="slogan">
+        <h2>In a world of military aviation, one aircraft rules supreme. Built to put American pilots back in charge of the skies.</h2>
+    </div>
+    <div class="slogan2">
+        <h2>This is an ultimate air superiority fighter</h2>
+    </div> 
+    <div class="block_name_one">
+        <h2>Development</h2>
+    </div>
+    <div class="gallery_container">
+        <div class="gallery">
+            <img id="gallery-image" src="https://media.defense.gov/2020/Jun/09/2002313002/1200/1200/0/200603-F-IO108-015.JPG">
+            <p id="gallery-caption">F-111F</p>
+            <div class="gallery-controls">
+                <button id="prev-btn">Previous</button>
+                <button id="next-btn">Next</button>
+            </div>  
+        </div>
+        <div class="history">
+            <h2>In the early 1980s, the U.S. Air Force sought a replacement for the General Dynamics F-111, aiming for an aircraft capable 
+                of both air superiority and ground attack missions. McDonnell Douglas proposed the F-15E, an evolution of the F-15 Eagle, 
+                incorporating advanced avionics, increased fuel capacity, and the ability to carry a wide array of precision-guided 
+                munitions. The first production F-15E made its maiden flight on December 11, 1986, and the aircraft entered service with 
+                the USAF in 1988.</h2>
+        </div>
+    </div>
+            <script>
+                const images = [
+                    { src: "https://media.defense.gov/2020/Jun/09/2002313002/1200/1200/0/200603-F-IO108-015.JPG", caption: "F-111F" },
+                    { src: "https://media.defense.gov/2020/Dec/04/2002546492/1200/1200/0/201204-F-IO108-022.JPG", caption: "F-111F payload" },
+                    { src: "https://media.defense.gov/2020/Dec/04/2002546505/1200/1200/0/201204-F-IO108-012.JPG", caption: "F-111F cockpit" }
+                ];
+
+                let currentIndex = 0;
+
+                const galleryImage = document.getElementById("gallery-image");
+                const galleryCaption = document.getElementById("gallery-caption");
+                const prevBtn = document.getElementById("prev-btn");
+                const nextBtn = document.getElementById("next-btn");
+
+                function updateGallery() {
+                    galleryImage.src = images[currentIndex].src;
+                    galleryCaption.textContent = images[currentIndex].caption;
+                }
+
+                prevBtn.addEventListener("click", () => {
+                    currentIndex = (currentIndex - 1 + images.length) % images.length; 
+                    updateGallery();
+                });
+
+                nextBtn.addEventListener("click", () => {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    updateGallery();
+                });
+
+                updateGallery();
+            </script>
+
+            <div class="block_name_two">
+                <h2>Features</h2>
+            </div>
+
+            <figure class="left">
+                <img src="https://www.twz.com/wp-content/uploads/content-b/message-editor%2F1618788586338-70-lg2-highres.jpeg?strip=all&quality=85" style="max-width: 70%; margin-top: 6%; margin-left: 13.5%;">
+                <figcaption>AN/APG-70</figcaption>
+            </figure>
+            <h2>The F-15E Strike Eagle is equipped with advanced radar and electronic systems, making it a highly capable multi-role fighter. 
+                Central to its capabilities is the AN/APG-70 radar, which provides long-range detection, terrain-following, and precision 
+                targeting. This radar enables the aircraft to track multiple targets simultaneously and engage both air and ground threats with 
+                precision-guided munitions. Additionally, the F-15E is outfitted with the LANTIRN targeting and navigation pods, allowing for 
+                low-altitude, night, and all-weather operations. Coupled with its advanced electronic warfare suite, including radar warning 
+                receivers and countermeasure dispensers, the Strike Eagle maintains situational awareness and survivability in contested 
+                environments.</h2>
+
+        <div class="block_name_three">
+            <h2>Service history</h2>
+        </div>
+
+        <div id="Part2">
+            <div class="container2">
+                <div class="image-wrapper2">
+                    <img src="https://media.defense.gov/2021/Sep/29/2002864191/2000/2000/0/180918-F-CI489-9250.JPG" alt="First Image1">
+                </div>
+                <div class="arrow-wrapper2">
+                    <button id="next-btn2"><img src="https://w7.pngwing.com/pngs/444/482/png-transparent-computer-icons-next-button-miscellaneous-angle-number.png" alt="Next"></button>
+                </div>
+                <div class="text-wrapper2">
+                    <h3>The F-15C and F-15E have demonstrated exceptional service records, becoming legends in military aviation. 
+                        The F-15C, optimized for air superiority, achieved an unprecedented 104:0 kill ratio, securing its dominance 
+                        in aerial combat. Notable victories include its role in Operation Desert Storm, where it downed numerous enemy 
+                        aircraft, including MiG-29s and Su-22s. In a remarkable demonstration of versatility, an F-15C successfully 
+                        destroyed a satellite in low Earth orbit during the 1985 ASM-135 ASAT test, showcasing its ability to adapt 
+                        to unconventional missions. The F-15E Strike Eagle excelled in both air-to-air and air-to-ground roles, proving 
+                        its versatility during the same conflict by delivering precision strikes on strategic targets while also engaging 
+                        enemy aircraft. Over decades of service, both variants have earned a reputation for reliability, effectiveness, 
+                        and unmatched combat performance.</h3>
+                </div>
+                
+            </div>
+        </div>
+
+        <script>
+            const images2 = [ "https://media.defense.gov/2021/Sep/29/2002864191/2000/2000/0/180918-F-CI489-9250.JPG" ,"https://media.defense.gov/2007/Aug/02/2000464157/2000/2000/0/070610-F-0205S-103.JPG", "https://media.defense.gov/2008/Jun/30/2000696623/-1/-1/0/080527-F-2828D-234.JPG"];
+        const text2 = ["The F-15C and F-15E have demonstrated exceptional service records, becoming legends in military aviation. The F-15C, optimized for air superiority, achieved an unprecedented 104:0 kill ratio, securing its dominance in aerial combat. Notable victories include its role in Operation Desert Storm, where it downed numerous enemy aircraft, including MiG-29s and Su-22s. In a remarkable demonstration of versatility, an F-15C successfully destroyed a satellite in low Earth orbit during the 1985 ASM-135 ASAT test, showcasing its ability to adapt to unconventional missions. The F-15E Strike Eagle excelled in both air-to-air and air-to-ground roles, proving its versatility during the same conflict by delivering precision strikes on strategic targets while also engaging enemy aircraft. Over decades of service, both variants have earned a reputation for reliability, effectiveness, and unmatched combat performance.", "The F-15C and F-15E have demonstrated exceptional service records, becoming legends in military aviation. The F-15C, optimized for air superiority, achieved an unprecedented 104:0 kill ratio, securing its dominance in aerial combat. Notable victories include its role in Operation Desert Storm, where it downed numerous enemy aircraft, including MiG-29s and Su-22s. In a remarkable demonstration of versatility, an F-15C successfully destroyed a satellite in low Earth orbit during the 1985 ASM-135 ASAT test, showcasing its ability to adapt to unconventional missions. The F-15E Strike Eagle excelled in both air-to-air and air-to-ground roles, proving its versatility during the same conflict by delivering precision strikes on strategic targets while also engaging enemy aircraft. Over decades of service, both variants have earned a reputation for reliability, effectiveness, and unmatched combat performance.", "The F-15C and F-15E have demonstrated exceptional service records, becoming legends in military aviation. The F-15C, optimized for air superiority, achieved an unprecedented 104:0 kill ratio, securing its dominance in aerial combat. Notable victories include its role in Operation Desert Storm, where it downed numerous enemy aircraft, including MiG-29s and Su-22s. In a remarkable demonstration of versatility, an F-15C successfully destroyed a satellite in low Earth orbit during the 1985 ASM-135 ASAT test, showcasing its ability to adapt to unconventional missions. The F-15E Strike Eagle excelled in both air-to-air and air-to-ground roles, proving its versatility during the same conflict by delivering precision strikes on strategic targets while also engaging enemy aircraft. Over decades of service, both variants have earned a reputation for reliability, effectiveness, and unmatched combat performance."];
+        
+        const imageWrapper2 = document.querySelector(".image-wrapper2 img");
+        const textWrapper2 = document.querySelector(".text-wrapper2 p");
+        const nextBtn2	 = document.getElementById("next-btn2");
+
+        let index2 = 0;
+
+         nextBtn2.addEventListener("click", () => {
+             index2 = (index2 + 1) % images2.length;
+              imageWrapper2.src = images2[index2];
+              textWrapper2.textContent = text2[index2];
+        });
+    </script>
+
+    <div class="block_name_four">
+        <h2>Armament</h2>
+    </div>
+
+
+    
+        
+
+    <model-viewer src="f-15e_strike_eagle_-_fighter_jet_-_free.glb" auto-rotate camera-controls></model-viewer>
+
+    <div class="weapon_description">
+        <h2>The F-15E can be equiped with the following list of weapon</h2>
+    </div>
+
+    <div class="ata">
+        <h2>Air to air weapon</h2>
+    </div>
+
+    <div class="aim120_title">
+        <h1>AIM-120 AMRAAM</h1>
+    </div>
+
+    <div class="model2">
+        <model-viewer src="aim-120_amraam_missile.glb" auto-rotate camera-controls></model-viewer>
+    </div>
+
+    <div class="aim120">
+        <h2>The AIM-120 AMRAAM is a radar-guided missile designed for beyond-visual-range combat. 
+            With active radar homing and compatibility with various aircraft, it delivers unmatched accuracy and reliability, 
+            making it a cornerstone of modern air combat.</h2>
+    </div>
+
+    <div class="sidewinder">
+        <h1>AIM-9M</h1>
+    </div>
+
+    <div class="model3">
+        <model-viewer src="aim-9m_sidewinder.glb" auto-rotate camera-controls></model-viewer>
+    </div>
+
+    <div class="aim9m">
+        <h2>The AIM-9M Sidewinder is a heat-seeking, short-range air-to-air missile known for its reliability and versatility. 
+            With advanced infrared tracking and countermeasure resistance, it excels in dogfights and remains a key weapon in modern 
+                air combat.</h2>
+    </div>
+
+    <div class="atg">
+        <h2>Air to ground weapon</h2>
+    </div>
+
+    <div class="maverick">
+        <h1>AGM-65</h1>
+    </div>
+
+    <div class="model4">
+        <model-viewer src="agm_65_maverick.glb" auto-rotate camera-controls></model-viewer>
+    </div>
+
+    <div class="agm">
+        <h2>The AGM-65 Maverick is a precision-guided, air-to-ground missile designed for close air support and strike missions. 
+            Known for its versatility, it uses electro-optical or infrared guidance to target armored vehicles, ships, and fortified 
+            structures with pinpoint accuracy. Widely deployed, the AGM-65 is a trusted weapon for diverse combat scenarios.</h2>
+    </div>
+
+    <div class="gbu">
+        <h1>GBU</h1>
+    </div>
+
+    <div class="model5">
+        <model-viewer src="guided_bomb_unit_-_12____gbu_12.glb" auto-rotate camera-controls></model-viewer>
+    </div>
+
+    <div class="bombs">
+        <h2>The F-15E Strike Eagle carries various Guided Bomb Units (GBUs) for precision strikes. These include laser-guided GBU-10 
+            and GBU-12 Paveways for pinpoint accuracy, GPS-guided GBU-31 and GBU-38 JDAMs for all-weather operations, and GBU-39 SDBs 
+            for high-impact, low-collateral strikes. This versatility allows it to excel in diverse missions.</h2>
+    </div>
+
+    <div class="JSW">
+        <h1>AGM-154 Joint Standoff Weapon</h1>
+    </div>
+
+    <div class="model6">
+        <model-viewer src="agm-154_jsow_missile.glb" auto-rotate camera-controls></model-viewer>
+    </div>
+
+    <div class="agm154">
+         <h2>The AGM-154 Joint Standoff Weapon (JSOW) is a precision-guided glide bomb designed for long-range strikes. 
+            Using GPS and inertial navigation, it delivers high accuracy against stationary and moving targets. The F-15E 
+            can deploy the AGM-154 to neutralize bunkers, air defenses, and other high-value targets, ensuring effectiveness in 
+            complex combat scenarios.</h2>
+    </div>
+
+    <div id="footer">
+        <footer>
+            <div class="author">
+                <p>By Y.K.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
